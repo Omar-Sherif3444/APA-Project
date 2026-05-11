@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to EYT cinemas</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/style_login.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+</head>
+<body class="container">
+
+<div class="navbar1">
+    <div class="logo">
+        <a th:href="@{/index}" target="_blank"><img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo"></a>
+    </div>
+    <div class="links">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/Movies}">Movies</a>
+        <a th:href="@{/About_Us}">About Us</a>
+
+        <!-- Show when logged out -->
+        <th:block th:if="${session.userId == null}">
+            <a th:href="@{/sign_up}">Sign Up</a>
+            <a th:href="@{/Log_In}">Login</a>
+        </th:block>
+
+        <!-- Show when logged in -->
+        <th:block th:if="${session.userId != null}">
+            <a th:href="@{/index}" style="color: #C22D7B; font-weight: 700;"
+               th:text="'👤 ' + ${session.userName}"></a>
+            <a th:href="@{/logout}" style="color: #ff6b6b;">Logout</a>
+        </th:block>
+    </div>
+</div>
+
+<div class="titles">
+    <h1>Log In to EYT</h1>
+    <h3>Enjoy Your Time :)</h3>
+
+    <div th:if="${error}" style="color: #ff6b6b; background: rgba(255,0,0,0.1);
+                padding: 12px; border-radius: 8px; margin-top: 20px;
+                border: 1px solid #ff6b6b; text-align: center;
+                width: 25%; margin-left: auto; margin-right: auto;">
+        <p th:text="${error}" style="margin: 0;"></p>
+    </div>
+
+</div>
+
+<div class="log_in">
+    <form th:action="@{/Log_In}" method="post">
+        <div class="info">
+            <input type="email" name="email" placeholder="Enter your Email" required>
+            <input type="password" name="password" min="8" placeholder="Enter your Password" required>
+        </div>
+        <div class="button">
+            <input class="rounded" type="submit" value="Login">
+        </div>
+    </form>
+    <div class="sign">
+        <h5>Don&apos;t have an account?</h5>
+        <a class="rounded" th:href="@{/sign_up}">Sign up</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+    <a th:href="@{/admin/login}"
+       style="color: #6C6C70; text-decoration: none; font-size: 13px;">
+        Admin Login
+    </a>
+</div>
+<hr/>
+
+<div class="footer d-flex">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+        <a th:href="@{/FAQ}">FAQ</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter.png}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+
+</body>
+
+</html>

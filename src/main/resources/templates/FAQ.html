@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/FAQ.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+</head>
+<body class="container">
+
+<div class="navbar1">
+    <div class="logo">
+        <a th:href="@{/index}" target="_blank"><img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo"></a>
+    </div>
+
+    <div class="links">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/Movies}">Movies</a>
+        <a th:href="@{/About_Us}">About Us</a>
+
+        <!-- Show when logged out -->
+        <th:block th:if="${session.userId == null}">
+            <a th:href="@{/sign_up}">Sign Up</a>
+            <a th:href="@{/Log_In}">Login</a>
+        </th:block>
+
+        <!-- Show when logged in -->
+        <th:block th:if="${session.userId != null}">
+            <a th:href="@{/index}" style="color: #C22D7B; font-weight: 700;"
+               th:text="'👤 ' + ${session.userName}"></a>
+            <a th:href="@{/logout}" style="color: #ff6b6b;">Logout</a>
+        </th:block>
+    </div>
+</div>
+
+<hr/>
+
+<h2 class="mt-5">Frequently Asked Questions</h2>
+
+<h3 style="margin-top: 40px;">General Information</h3>
+
+<h4 style="margin-top: 35px;">Where is EYT cinema located?</h4>
+<p>Sheraton location can be found on the <a href="">Contact Us</a> page.</p>
+
+<br>
+
+<h4>What are the different types of Movie Ratings?</h4>
+<p>These are the details for each rating, as stated by the Ministry of Culture.</p>
+
+<table border="1">
+    <tr>
+        <td class="pb-2 p2-2">18TC</td>
+        <td class="rate ps-2 pt-2 pb-2" style="line-height: 20px;">Rated 18+ until confirmed by the Ministry of Culture. Entry to the cinema must comply with the age restriction of final confirmed rating. Booking prior to confirmed rating, is at customers discretion.</td>
+    </tr>
+
+    <tr style="background-color: #17181a;">
+        <td class="pb-2 ps-2">18+</td>
+        <td  class="ps-2 pb-2">No persons under 18 years of age will be admitted. Babies not allowed.</td>
+    </tr>
+
+    <tr>
+        <td class="pb-2 ps-2">16+</td>
+        <td  class="ps-2 pb-2">No persons under 16 years of age will be admitted. Babies not allowed.</td>
+    </tr>
+
+    <tr style="background-color: #17181a;">
+        <td class="pb-2 ps-2">12+</td>
+        <td  class="ps-2 pb-2">No persons under 12 years of age will be admitted. Babies not allowed.</td>
+    </tr>
+
+    <tr>
+        <td class="pb-2 ps-2">PG</td>
+        <td  class="ps-2 pb-2">Parental Guidance is required.</td>
+    </tr>
+
+    <tr style="background-color: #17181a;">
+        <td class="pb-2 ps-3">G</td>
+        <td  class="ps-2 pb-2">General Exhibition - open for all ages.</td>
+    </tr>
+</table>
+
+<br>
+
+<p>Please note that it is against the law for underage people to enter Restricted Movies, even with their parents. You may be asked for identification to prove your age.</p>
+
+<br>
+
+<h4>Will cinema staff ask for ID?</h4>
+<p>Yes, cinemas staff can ask for photo identification as proof of age. You will be refused entry to the movie if you cannot provide an identification document to verify your age.</p>
+
+<br>
+
+<h4>What is the minimum age to pay for a ticket?</h4>
+<p>Children under 3 years old can enter the cinema for free. Please note: this does not entitle the child to a seat. 3D Glasses will need to be purchased as an extra.</p>
+
+<br>
+
+<h4>Is smoking permitted in the cinema?</h4>
+<p>Smoking in not allowed within the EYT Cinema location.  This includes the foyer, cinemas and washrooms.</p>
+
+<br>
+
+<h4>Can I bring young children to the cinema?</h4>
+<p>Babies and toddlers under age of 4 year old will not be permitted inside the cinema for any movies after 6pm - except for the KIDS Cinema experience.</p>
+<p>Please do not bring young children to Gold and 4DX Cinema experience.</p>
+
+<br>
+
+<h4>Do your cinemas provide spaces for wheelchairs?</h4>
+<p>Our cinemas have allocated wheel chair seats in the screens. Please check availability and  purchase a ticket at the ticket counter.</p>
+
+<br>
+
+<h4>Can I see what subtitles are displaying on a movie?</h4>
+<p>Yes, the subtitles are listed on the movie information pages.</p>
+
+<br>
+
+<h4>Can I bring food from outside into the cinemas?</h4>
+<p>Food and beverages purchased outside the cinema are permitted inside the cinema.</p>
+
+<br>
+
+<h4>How much do 3D glasses cost?</h4>
+<p>3D glasses cost 45 EGP each. Your 3D glasses can be re-used. </p>
+
+<br>
+
+<h4>Where do I collect my 3D glasses?</h4>
+<p>3D glasses can be collected from our staff at the ticket counters and candy bar in the cinema. </p>
+
+<hr/>
+
+<h2 style="margin-bottom: 30px; margin-top: 25px;">Your Account</h2>
+
+<h4>What are the benefits of creating an EYT Member account:</h4>
+
+<ol type="I">
+    <li>Quicker booking with saved contact details</li>
+    <li>Stored payment details</li>
+    <li>Access to your upcoming and past movie purchase history</li>
+</ol>
+
+<hr/>
+
+<h3 style="margin-bottom: 30px; margin-top: 25px;">Bookings</h3>
+
+<h4>Is there a booking fee for online purchases?</h4>
+<p>No, there is no fee for online ticket bookings.</p>
+
+<br>
+
+<h4>What forms of payment do you accept for online bookings?</h4>
+<p>We accept VISA and MasterCard for online bookings.</p>
+
+<br>
+
+<h4>How many tickets can I book online?</h4>
+<p class="mb-5">You may purchase a maximum of 10 tickets per booking. You may complete as many bookings as you would like.</p>
+
+<hr/>
+
+<div class="footer d-flex mt-2">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+        <a th:href="@{/FAQ}">FAQ</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter.png}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+
+</body>
+</html>

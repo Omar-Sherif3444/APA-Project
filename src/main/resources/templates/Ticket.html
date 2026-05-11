@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cinema Ticket</title>
+
+    <link rel="stylesheet" th:href="@{/ticket.css}">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<div class="ticket-container">
+
+    <div class="ticket">
+
+        <div class="left">
+
+            <h1>CINEMA TICKET</h1>
+
+            <div class="info">
+                <p><strong>Movie:</strong> <span id="movie" th:text="${booking != null ? booking.show.movieTitle : 'N/A'}"></span></p>
+
+                <p><strong>Date:</strong> <span id="date" th:text="${booking != null ? booking.show.date : 'N/A'}"></span></p>
+
+                <p><strong>Time:</strong> <span id="time" th:text="${booking != null ? booking.show.time : 'N/A'}"></span></p>
+
+                <p><strong>Seats:</strong>
+                    <span th:each="seat, iter : ${booking.seats}">
+                        <span th:text="${seat.row != null ? seat.row.toString() + seat.seatNumber : seat.seatNumber}"></span>
+                        <span th:if="${!iter.last}">, </span>
+                    </span>
+                </p>
+                <p><strong>Total:</strong> <span id="total" th:text="${booking != null ? booking.totalPrice + ' EGP' : 'N/A'}"></span></p>
+
+                <p><strong>Booking ID:</strong>
+                    <span id="bookingID" th:text="${booking != null ? booking.id : 'N/A'}"></span>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="right">
+
+            <div id="qrcode"></div>
+
+            <p class="scan-text">
+                Scan Your Ticket
+            </p>
+
+        </div>
+
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+        Print Ticket
+    </button>
+
+</div>
+
+<script>
+    window.onload = () => {
+        const bookingId = document.getElementById('bookingID')?.textContent?.trim();
+        if (bookingId && bookingId !== 'N/A' && bookingId !== '') {
+            try {
+                new QRCode(document.getElementById('qrcode'), {
+                    text: 'Booking #' + bookingId,
+                    width: 120,
+                    height: 120
+                });
+            } catch(e) {
+                console.log("QR generation failed:", e);
+            }
+        }
+    };
+</script>
+
+</body>
+
+</html>

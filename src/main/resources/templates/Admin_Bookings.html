@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Bookings</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+    <style>
+        body {
+            background: #0f0f1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        h1 {
+            color: #C22D7B;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background: #C22D7B;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.03);
+        }
+        .status-confirmed {
+            color: #4CAF50;
+            font-weight: 700;
+        }
+        .status-cancelled {
+            color: #ff4444;
+            font-weight: 700;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #C22D7B;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>All Bookings</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Movie</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Seats</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.id}"></td>
+            <td th:text="${booking.userFirstName}"></td>
+            <td th:text="${booking.show.movieTitle}"></td>
+            <td th:text="${booking.show.date}"></td>
+            <td th:text="${booking.show.time}"></td>
+            <td th:text="${#lists.size(booking.seats)}"></td>
+            <td th:text="${booking.totalPrice + ' EGP'}"></td>
+            <td>
+                        <span th:class="${booking.status == 'CONFIRMED'} ? 'status-confirmed' : 'status-cancelled'"
+                              th:text="${booking.status}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="back-link" th:href="@{/admin/dashboard}">← Back to Dashboard</a>
+</div>
+</body>
+</html>

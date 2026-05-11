@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/terms.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+</head>
+<body class="container">
+
+<div class="navbar1">
+    <div class="logo">
+        <a th:href="@{/index}" target="_blank"><img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo"></a>
+    </div>
+
+    <div class="links">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/Movies}">Movies</a>
+        <a th:href="@{/About_Us}">About Us</a>
+
+        <!-- Show when logged out -->
+        <th:block th:if="${session.userId == null}">
+            <a th:href="@{/sign_up}">Sign Up</a>
+            <a th:href="@{/Log_In}">Login</a>
+        </th:block>
+
+        <!-- Show when logged in -->
+        <th:block th:if="${session.userId != null}">
+            <a th:href="@{/index}" style="color: #C22D7B; font-weight: 700;"
+               th:text="'👤 ' + ${session.userName}"></a>
+            <a th:href="@{/logout}" style="color: #ff6b6b;">Logout</a>
+        </th:block>
+    </div>
+</div>
+
+<hr/>
+
+<h2 class="mt-4 mb-5" style="font-size: 32px; font-weight: 700;">Terms &amp; Conditions</h2>
+
+<h4 class="mb-2"  style="font-size: 22px; font-weight: 700;">General Rules :</h4>
+
+<ul class="mb-5">
+    <li>A valid cinema ticket is required for entry to any screening.</li>
+    <li>Children under 3 years old are not permitted inside the cinema.</li>
+    <li>Children under 12 years old are not allowed in Premiere screenings.</li>
+</ul>
+
+<h4 class="mb-2"  style="font-size: 22px; font-weight: 700;">Prohibited Inside the Cinema</h4>
+<p>To ensure the best experience for all guests, the following are not allowed within the cinema premises :</p>
+
+<ul class="mb-5">
+    <li>Outside food and beverages.</li>
+    <li>Smoking of cigarettes or e-cigarettes.</li>
+    <li>Any form of recording, including filming and photography.</li>
+</ul>
+
+<h4 class="mb-2"  style="font-size: 22px; font-weight: 700;">Inside the Auditorium</h4>
+<p>For the comfort of all guests, please follow these guidelines :</p>
+
+
+<ul class="mb-5">
+    <li>Silence your mobile phones and refrain from using them during the movie.</li>
+    <li>Do not place your feet on the seats or engage in any disruptive behavior.</li>
+</ul>
+
+<h4 class="mb-2"  style="font-size: 22px; font-weight: 700;">Scene Cinemas' Rights</h4>
+<p>Scene Cinemas reserves the right to :</p>
+
+<ul class="mb-5">
+    <li>Request identification to verify age for movies with age restrictions or eligibility for discounts.</li>
+    <li>Deny ticket sales to individuals who do not meet the required age rating, even if accompanied by an adult.</li>
+    <li>Refuse admission to children under 3 years old, even for family-friendly films, regardless of whether they are seated on a parent or guardian&apos;s lap.</li>
+</ul>
+
+<h4 class="mb-2"  style="font-size: 22px; font-weight: 700;">Ticket &amp; Show Policies</h4>
+
+<ul class="mb-5">
+    <li>All online ticket purchases are final that means there is no refunds, exchanges, or cancellations.</li>
+    <li>Showtimes are subject to change without prior notice.</li>
+</ul>
+
+<hr/>
+
+<div class="footer d-flex mt-2">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+        <a th:href="@{/FAQ}">FAQ</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter.png}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+
+</body>
+</html>

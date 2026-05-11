@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"  data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EYT - Cinema Booking System</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/style_index.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+</head>
+<body class="container">
+
+<div class="navbar1">
+    <div class="logo">
+        <a th:href="@{/index}" target="_blank"><img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo"></a>
+    </div>
+
+    <div class="links">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/Movies}">Movies</a>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a th:href="@{/my-bookings}">My Bookings</a>
+
+        <!-- Show when logged out -->
+        <th:block th:if="${session.userId == null}">
+            <a th:href="@{/sign_up}">Sign Up</a>
+            <a th:href="@{/Log_In}">Login</a>
+        </th:block>
+
+        <!-- Show when logged in -->
+        <th:block th:if="${session.userId != null}">
+            <a th:href="@{/index}" style="color: #C22D7B; font-weight: 700;"
+               th:text="'👤 ' + ${session.userName}"></a>
+            <a th:href="@{/logout}" style="color: #ff6b6b;">Logout</a>
+            
+        </th:block>
+    </div>
+</div>
+
+<div class="image">
+    <img th:src="@{/images/collage.png}" alt="Our_Movies">
+</div>
+
+<hr/>
+
+<div class="movies">
+    <h2>Now Showing</h2>
+    <div class="aval_movies d-flex flex-wrap">
+        <div class="movie col-4">
+            <a style="text-decoration: none; color: white;" th:href="@{/Bershama}">
+                <img th:src="@{/images/bershama.jpg}" alt="Bershama">
+                <h3>BERSHAMA</h3>
+            </a>
+        </div>
+        <div class="movie col-4">
+            <a  style="text-decoration: none; color: white;" th:href="@{/Egybest}">
+                <img th:src="@{/images/Egybest.jpg}" alt="Egybest">
+                <h3>EGYBEST</h3>
+            </a>
+        </div>
+        <div class="movie col-4">
+            <a  style="text-decoration: none; color: white;" th:href="@{/Hoppers}">
+                <img th:src="@{/images/Hoppers.jpg}" alt="Hoppers">
+                <h3>HOPPERS</h3>
+            </a>
+        </div>
+    </div>
+    <a th:href="@{/Movies}">
+        <input type="submit" value="Load All Movies">
+    </a>
+</div>
+
+<hr/>
+
+<div class="footer d-flex">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+        <a th:href="@{/FAQ}">FAQ</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter.png}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+
+</body>
+</html>

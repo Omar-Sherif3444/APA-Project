@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}"  type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/About.css}">
+</head>
+<body class="container">
+
+<div class="navbar1">
+    <div class="logo">
+        <a th:href="@{/index}" target="_blank"><img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo"></a>
+    </div>
+
+    <div class="links">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/Movies}">Movies</a>
+        <a th:href="@{/About_Us}">About Us</a>
+
+        <!-- Show when logged out -->
+        <th:block th:if="${session.userId == null}">
+            <a th:href="@{/sign_up}">Sign Up</a>
+            <a th:href="@{/Log_In}">Login</a>
+        </th:block>
+
+        <!-- Show when logged in -->
+        <th:block th:if="${session.userId != null}">
+            <a th:href="@{/index}" style="color: #C22D7B; font-weight: 700;"
+               th:text="'👤 ' + ${session.userName}"></a>
+            <a th:href="@{/logout}" style="color: #ff6b6b;">Logout</a>
+        </th:block>
+    </div>
+</div>
+
+<hr/>
+
+<h3>About Us</h3>
+
+<br/>
+
+<p><span>EYT</span> holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+
+<p>At <span>EYT</span>, we believe in the power of innovation and the magic of storytelling. We take great pride in the strategic placement of our cinemas, and we are committed to continually investing in the introduction of premium formats and experiences. This includes everything from spacious seating and luxury recliners to innovative menus and exclusive offerings such as IMAX with Laser.</p>
+
+<p>Step into our premium facility and embark on a journey where the wonders of cinema come to life. Through state-of-the-art laser technology and sound systems, we transport you to new heights of entertainment. We prioritize comfortable and spacious seating, exceptional sound and projection, and a wide selection of food and beverages, ensuring a memorable experience with every visit to our theatres.</p>
+
+<p>Our commitment to excellence extends beyond the movies themselves. <span>EYT</span> theaters, equipped with a full kitchen, offer experiences ranging from full-service dining to express pickup. Our specialized kitchen offers a tantalizing menu of delectable international dishes and hand-crafted beverages, meticulously crafted to enhance your viewing pleasure, whether you prefer a full meal or a selection of gourmet bites.</p>
+
+<p>Sustainability and environmental stewardship are deeply ingrained in our values. Through eco-friendly practices and waste reduction initiatives, we minimize our ecological footprint and align our operations with the values of our guests.</p>
+
+<p class="last">Thank you for choosing <span>EYT</span>, where every detail is meticulously designed to exceed your expectations. Scene Cinemas is your ticket to a world of cinematic wonders, where the magic of movies becomes reality.</p>
+
+<hr/>
+
+<div class="footer d-flex">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+        <a th:href="@{/FAQ}">FAQ</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+
+
+</body>
+</html>

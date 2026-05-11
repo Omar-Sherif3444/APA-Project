@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Bookings</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/bookings.css}">
+    <link rel="shortcut icon"
+          th:href="@{/images/FullLogo_Transparent.png}"
+          type="image/x-icon">
+</head>
+
+<body class="container">
+
+    <!-- Navbar -->
+    <div class="navbar1">
+
+        <div class="logo">
+            <a th:href="@{/index}">
+                <img th:src="@{/images/FullLogo_Transparent.png}"
+                     alt="EYT_logo">
+            </a>
+        </div>
+
+        <div class="links">
+
+            <a th:href="@{/index}">Home</a>
+            <a th:href="@{/Movies}">Movies</a>
+            <a th:href="@{/my-bookings}">My Bookings</a>
+            <a th:href="@{/About_Us}">About Us</a>
+
+            <!-- Logged Out -->
+            <th:block th:if="${session.userId == null}">
+                <a th:href="@{/sign_up}">Sign Up</a>
+                <a th:href="@{/Log_In}">Login</a>
+            </th:block>
+
+            <!-- Logged In -->
+            <th:block th:if="${session.userId != null}">
+                <a th:href="@{/index}"
+                   style="color:#C22D7B;font-weight:700;"
+                   th:text="'👤 ' + ${session.userName}">
+                </a>
+
+                <a th:href="@{/logout}"
+                   style="color:#ff6b6b;">
+                    Logout
+                </a>
+            </th:block>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Page Title -->
+    <h2 class="page-title">
+        My <span>Bookings</span>
+    </h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+
+        <div class="tab active"
+             data-tab="upcoming">
+            Upcoming
+        </div>
+
+        <div class="tab"
+             data-tab="past">
+            Past
+        </div>
+
+    </div>
+
+    <!-- Bookings Container -->
+    <div class="bookings-container"
+         id="bookings-container">
+
+        <!-- Empty State -->
+        <div th:if="${#lists.isEmpty(bookings)}"
+             class="empty-state">
+
+            <div class="icon">🎬</div>
+
+            <h3>No bookings yet</h3>
+
+            <p>
+                You haven't booked any movie tickets.
+            </p>
+
+            <a th:href="@{/Movies}">
+                Browse Movies
+            </a>
+
+        </div>
+
+        <!-- Booking Cards -->
+        <div th:each="booking : ${bookings}"
+             class="booking-card"
+             th:attr="data-date=${booking.show.date}">
+
+            <div class="booking-info">
+
+                <h3 th:text="${booking.show.movieTitle}">
+                    Movie
+                </h3>
+
+                <div class="booking-details">
+
+                    <div>
+
+                        <span class="label">
+                            Date:
+                        </span>
+
+                        <span th:text="${booking.show.date}">
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <span class="label">
+                            Time:
+                        </span>
+
+                        <span th:text="${booking.show.time}">
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <span class="label">
+                            Seats:
+                        </span>
+
+                        <span th:each="seat, iter : ${booking.seats}">
+
+                            <span th:text="${seat.seatNumber}">
+                            </span>
+
+                            <span th:if="${!iter.last}">
+                                ,
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="total-price"
+                     th:text="${booking.totalPrice + ' EGP'}">
+                </div>
+
+            </div>
+
+            <div class="booking-status">
+
+                <div class="booking-code">
+
+                    Booking ID:
+                    <span th:text="'#' + ${booking.id}">
+                    </span>
+
+                </div>
+
+                <div class="status-badge status-upcoming">
+                    Confirmed
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+
+        <div class="us">
+
+            <h2>EYT</h2>
+
+            <p>
+                EYT holds a prominent position in Egypt's entertainment realm,
+                spearheading innovation and quality in the multiplex cinema sector.
+            </p>
+
+        </div>
+
+        <div class="about">
+
+            <h3>ABOUT SCENE CINEMAS</h3>
+
+            <a th:href="@{/About_Us}">
+                About Us
+            </a>
+
+            <a href="#">
+                Contact Us
+            </a>
+
+        </div>
+
+        <div class="legal">
+
+            <h3>LEGAL</h3>
+
+            <a th:href="@{/Terms&Conditions}">
+                Terms & conditions
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a th:href="@{/FAQ}">
+                FAQ
+            </a>
+
+        </div>
+
+        <div class="follow">
+
+            <h3>FOLLOW US</h3>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                <img th:src="@{/images/facebook.png}"
+                     alt="facebook_logo">
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                <img th:src="@{/images/instagram.png}"
+                     alt="instagram_logo">
+            </a>
+
+            <a href="https://x.com/" target="_blank">
+                <img th:src="@{/images/twitter.png}"
+                     alt="twitter_logo">
+            </a>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Copyright -->
+    <div class="copyrights">
+
+        <h5 class="text-center">
+            © EYT. All rights reserved.
+        </h5>
+
+        <div class="brand text-center">
+
+            <img th:src="@{/images/FullLogo_Transparent.png}"
+                 alt="EYT_logo">
+
+            <h3>
+                Your Ticket to a world of cinematic wonders.
+            </h3>
+
+        </div>
+
+    </div>
+
+    <script th:src="@{/JS/navbar.js}"></script>
+
+    <script>
+
+        const tabs = document.querySelectorAll(".tab");
+        const cards = document.querySelectorAll(".booking-card");
+
+        tabs.forEach(tab => {
+
+            tab.addEventListener("click", () => {
+
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                const type = tab.dataset.tab;
+
+                cards.forEach(card => {
+
+                    const bookingDate =
+                        new Date(card.dataset.date);
+
+                    const today = new Date();
+
+                    today.setHours(0,0,0,0);
+
+                    if(type === "upcoming") {
+
+                        if(bookingDate >= today) {
+                            card.style.display = "flex";
+                        }
+                        else {
+                            card.style.display = "none";
+                        }
+
+                    } else {
+
+                        if(bookingDate < today) {
+                            card.style.display = "flex";
+                        }
+                        else {
+                            card.style.display = "none";
+                        }
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

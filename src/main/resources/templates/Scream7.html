@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scream 7</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/Scream7.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+</head>
+<body class="container">
+<div class="page-overlay"></div>
+<!-- Start Navbar -->
+<div class="navbar1">
+    <div class="logo">
+        <a th:href="@{/index}" target="_blank"><img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo"></a>
+    </div>
+
+    <div class="links">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/Movies}">Movies</a>
+        <a th:href="@{/About_Us}">About Us</a>
+
+        <!-- Show when logged out -->
+        <th:block th:if="${session.userId == null}">
+            <a th:href="@{/sign_up}">Sign Up</a>
+            <a th:href="@{/Log_In}">Login</a>
+        </th:block>
+
+        <!-- Show when logged in -->
+        <th:block th:if="${session.userId != null}">
+            <a th:href="@{/index}" style="color: #C22D7B; font-weight: 700;"
+               th:text="'👤 ' + ${session.userName}"></a>
+            <a th:href="@{/logout}" style="color: #ff6b6b;">Logout</a>
+            <a th:href="@{/my-bookings}">My Bookings</a>
+        </th:block>
+    </div>
+</div>
+<!-- End Navbar -->
+
+<!-- Start film details -->
+<div class="scream d-flex">
+    <div class="img-scream m-3">
+        <img th:src="@{/images/Scream 7.jpg}" alt="Scream 7" >
+    </div>
+
+    <div class="info-scream d-flex">
+        <div class="Age">
+            <p>18+</p>
+        </div>
+        <div class="Title">
+            <h2>Scream 7</h2>
+        </div>
+    </div>
+</div>
+<div class="Description">
+    <div>
+        <p>HORROR:</p>
+    </div>
+    <div class="img">
+        <img th:src="@{/images/Clock-SVG.svg}" alt="Clock"> Runtime: 1h 57m
+        <img th:src="@{/images/World.svg}" alt="World"> Language: English
+        <img th:src="@{/images/subtitle.svg}" alt="Sub"> Subtitles: Arabic, French
+    </div>
+    <div class="Story">
+        <h4>Story:</h4>
+        <p>When a new Ghostface killer emerges in the quiet town where Sidney Prescott (Neve Campbell) has built a new life, her darkest fears are realized as her daughter (Isabel May) becomes the next target. Determined to protect her family, Sidney must face the horrors of her past to put an end to the bloodshed once and for all.</p>
+        <h4>Cast & Crew:</h4>
+        <p>Courteney Cox, Neve Campbell, Isabel May</p>
+    </div>
+    <div class="Button">
+        <a href="https://www.youtube.com/watch?v=UJrghaPJ0RY" target="_blank"><input type="button" value="Play Trailer" class="button-color"></a>
+    </div>
+</div>
+<!-- End film details -->
+
+<!-- Start Date -->
+<div class="Date">
+    <div class="All d-flex" style="font-size: 9px; font-weight: 700; text-align: center; padding-left: 5px;">
+        <!-- Dates generated dynamically by movie-day-selection.js -->
+    </div>
+</div>
+<!-- End Date -->
+
+<!-- Start Showtime -->
+<div class="Showtime">
+    <div class="show d-flex">
+        <img th:src="@{/images/Location.svg}" alt="Location">
+        <h2 style="font-size: 24px; font-weight: 700; padding-top: 7px;">EYT Cinema - Sheraton</h2>
+    </div>
+    <div class="time">
+        <h5 for="time"  style="font-size: 17px;  font-weight: 700;  padding-left: 8px;  padding-top: 12px; padding-bottom: 8px;">Standard</h5>
+        <div class="buttons-showtime">
+            <a href="" data-time="10:30 AM">
+                <input type="button" name="4:00" id="time" value="10:30 AM">
+            </a>
+            <a href="" data-time="01:15 PM">
+                <input type="button" name="4:00" id="time" value="01:15 PM">
+            </a>
+            <a href="" data-time="04:00 PM">
+                <input type="button" name="4:00" id="time" value="04:00 PM">
+            </a>
+            <a href="" data-time="06:15 PM">
+                <input type="button" name="4:00" id="time" value="06:15 PM">
+            </a>
+            <a href="" data-time="08:45 PM">
+                <input type="button" name="4:00" id="time" value="08:45 PM">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- End Showtime -->
+
+<!-- Start Other Movies You May Enjoy -->
+<div class="other-movies">
+    <h3>Other Movies You May Enjoy</h3>
+    <br/>
+    <div class="movie-list d-flex">
+        <div class="movie-item">
+            <a th:href="@{/Bershama}"><img th:src="@{/images/bershama.jpg}" alt="Bershama"></a>
+            <h4>Bershama</h4>
+        </div>
+        <div class="movie-item">
+            <a th:href="@{/Safah_el_tagamoaa}"><img th:src="@{/images/Safah el tagamoaa.jpg}" alt="Safah el Tagamoaa"></a>
+            <h4>Safah el Tagamoaa</h4>
+        </div>
+        <div class="movie-item pb-3">
+            <a th:href="@{/Hoppers}"><img th:src="@{/images/Hoppers.jpg}" alt="Hoppers"></a>
+            <h4>Hoppers</h4>
+        </div>
+    </div>
+</div>
+
+<hr/>
+<!-- End Other Movies You May Enjoy -->
+
+<!-- Start Footer -->
+<div class="footer d-flex pt-2">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+        <a th:href="@{/FAQ}">FAQ</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter.png}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+<!-- End Footer -->
+
+    <script th:src="@{/movie-day-selection.js}"></script>
+</body>
+</html>

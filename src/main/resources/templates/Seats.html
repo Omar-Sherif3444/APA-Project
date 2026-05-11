@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seats</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/Seats.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+</head>
+<body class="container">
+
+<form id="seat-form" action="/Seats/checkout" method="post">
+    <div class="cinema">
+
+        <h1>CHOOSE SEATS</h1>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div><span class="seat standard"></span> Standard</div>
+            <div><span class="seat occupied"></span> Occupied</div>
+            <div><span class="seat selected"></span> Selected</div>
+            <div><span class="seat hold"></span> Hold</div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen">SCREEN</div>
+
+        <!-- Seats -->
+        <div class="seating">
+
+            <div class="row">
+                <span class="row-label">A</span>
+                <div class="seat standard" data-seat-id="1">6</div>
+                <div class="seat standard" data-seat-id="2">5</div>
+                <div class="seat standard" data-seat-id="3">4</div>
+                <div class="seat standard" data-seat-id="4">3</div>
+                <div class="seat standard" data-seat-id="5">2</div>
+                <div class="seat standard" data-seat-id="6">1</div>
+            </div>
+
+            <div class="row">
+                <span class="row-label">B</span>
+                <div class="seat standard" data-seat-id="7">6</div>
+                <div class="seat standard" data-seat-id="8">5</div>
+                <div class="seat standard" data-seat-id="9">4</div>
+                <div class="seat standard" data-seat-id="10">3</div>
+                <div class="seat standard" data-seat-id="11">2</div>
+                <div class="seat standard" data-seat-id="12">1</div>
+            </div>
+
+            <div class="row">
+                <span class="row-label">C</span>
+                <div class="seat standard" data-seat-id="13">6</div>
+                <div class="seat standard" data-seat-id="14">5</div>
+                <div class="seat standard" data-seat-id="15">4</div>
+                <div class="seat standard" data-seat-id="16">3</div>
+                <div class="seat standard" data-seat-id="17">2</div>
+                <div class="seat standard" data-seat-id="18">1</div>
+            </div>
+
+            <div class="row">
+                <span class="row-label">D</span>
+                <div class="seat standard" data-seat-id="19">6</div>
+                <div class="seat standard" data-seat-id="20">5</div>
+                <div class="seat standard" data-seat-id="21">4</div>
+                <div class="seat standard" data-seat-id="22">3</div>
+                <div class="seat standard" data-seat-id="23">2</div>
+                <div class="seat standard" data-seat-id="24">1</div>
+            </div>
+
+            <div class="row">
+                <span class="row-label">E</span>
+                <div class="seat standard" data-seat-id="25">6</div>
+                <div class="seat standard" data-seat-id="26">5</div>
+                <div class="seat standard" data-seat-id="27">4</div>
+                <div class="seat standard" data-seat-id="28">3</div>
+                <div class="seat standard" data-seat-id="29">2</div>
+                <div class="seat standard" data-seat-id="30">1</div>
+            </div>
+
+            <div class="row">
+                <span class="row-label">F</span>
+                <div class="seat standard" data-seat-id="31">6</div>
+                <div class="seat standard" data-seat-id="32">5</div>
+                <div class="seat standard" data-seat-id="33">4</div>
+                <div class="seat standard" data-seat-id="34">3</div>
+                <div class="seat standard" data-seat-id="35">2</div>
+                <div class="seat standard" data-seat-id="36">1</div>
+            </div>
+
+            <div class="row">
+                <span class="row-label">G</span>
+                <div class="seat standard" data-seat-id="37">6</div>
+                <div class="seat standard" data-seat-id="38">5</div>
+                <div class="seat standard" data-seat-id="39">4</div>
+                <div class="seat standard" data-seat-id="40">3</div>
+                <div class="seat standard" data-seat-id="41">2</div>
+                <div class="seat standard" data-seat-id="42">1</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="selected-seat-inputs"></div>
+    <input type="hidden" name="showId" th:value="${show != null ? show.id : ''}">
+    <input type="hidden" name="movieTitle" th:value="${show != null ? show.movieTitle : ''}">
+    <input type="hidden" name="showDate" th:value="${show != null ? show.date : ''}">
+    <input type="hidden" name="showTime" th:value="${show != null ? show.time : ''}">
+    <input type="hidden" name="totalPrice" id="total-price-input" value="0.00">
+
+    <div class="booking-footer">
+
+
+        <div class="footer-left">
+            <p th:text="${show != null ? show.time : 'N/A'}">Sunday, 07:00PM</p>
+            <p th:text="${show != null ? show.date : 'N/A'}">26, April 2026</p>
+            <p>EYT - Sheraton</p>
+        </div>
+
+        <div class="footer-center">
+            <p>Please Choose Seats!</p>
+            <h3 th:text="${show != null ? show.movieTitle : 'N/A'}">Movie</h3>
+            <p id="seat-count" style="font-size: 14px; color: #888;">Seats: 0</p>
+        </div>
+
+        <div class="footer-right">
+            <button id="checkout-btn" class="checkout-btn" type="submit" disabled>→ Checkout</button>
+            <p class="price">0.00 EGP.</p>
+        </div>
+
+    </div>
+</form>
+
+<script th:inline="javascript">
+    // Seat numbers (1-42) that are already booked — mark them before binding click handlers
+    const occupiedIds = /*[[${occupiedSeatIds}]]*/ [];
+    occupiedIds.forEach(id => {
+        const el = document.querySelector('.seat[data-seat-id="' + id + '"]');
+        if (el) {
+            el.classList.remove('standard');
+            el.classList.add('occupied');
+        }
+    });
+
+    // Only available (standard) seats respond to clicks
+    const seats = document.querySelectorAll('.seat.standard');
+    const selectedSeatsContainer = document.getElementById('selected-seat-inputs');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const priceLabel = document.querySelector('.price');
+    const totalPriceInput = document.getElementById('total-price-input');
+    const seatCountDisplay = document.getElementById('seat-count');
+    const seatPrice = 150;
+
+    function updateSelection() {
+        const selectedSeats = document.querySelectorAll('.seat.standard.selected');
+        selectedSeatsContainer.innerHTML = '';
+        selectedSeats.forEach(seat => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'seatIds';
+            input.value = seat.dataset.seatId;
+            selectedSeatsContainer.appendChild(input);
+        });
+
+        const count = selectedSeats.length;
+        const total = (count * seatPrice).toFixed(2);
+        priceLabel.textContent = total + ' EGP.';
+        totalPriceInput.value = total;
+        seatCountDisplay.textContent = 'Seats: ' + count;
+        checkoutBtn.disabled = count === 0;
+        checkoutBtn.style.cursor = count === 0 ? 'not-allowed' : 'pointer';
+    }
+
+    seats.forEach(seat => {
+        seat.addEventListener('click', () => {
+            seat.classList.toggle('selected');
+            updateSelection();
+        });
+    });
+
+    document.getElementById('seat-form').addEventListener('submit', event => {
+        if (document.querySelectorAll('.seat.standard.selected').length === 0) {
+            event.preventDefault();
+            alert('Please select at least one seat before checkout.');
+        }
+    });
+
+    updateSelection();
+</script>
+
+<hr class="mt-5">
+
+<div class="footer d-flex pt-2">
+    <div class="us">
+        <h2>EYT</h2>
+        <p>EYT holds a prominent position in Egypt's entertainment realm, spearheading innovation and quality in the multiplex cinema sector.</p>
+    </div>
+
+    <div class="about">
+        <h3>ABOUT SCENE CINEMAS</h3>
+        <a th:href="@{/About_Us}">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div class="legal">
+        <h3>LEGAL</h3>
+        <a th:href="@{/Terms&Conditions}">Terms & conditions</a>
+        <a href="">Privacy Policy</a>
+    </div>
+    <div class="follow">
+        <h3>FOLLOW US</h3>
+        <a href="https://www.facebook.com/" target="_blank"><img th:src="@{/images/facebook.png}" alt="facebook_logo"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img th:src="@{/images/instagram.png}" alt="instagram_logo"></a>
+        <a href="https://x.com/" target="_blank"><img th:src="@{/images/twitter.png}" alt="twitter_logo"></a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="copyrights">
+    <h5 class="text-center">© EYT. All rights reserved.</h5>
+
+    <div class="brand text-center">
+        <img th:src="@{/images/FullLogo_Transparent.png}" alt="EYT_logo">
+        <h3>Your Ticket to a world of cinematic wonders.</h3>
+    </div>
+</div>
+
+</body>
+</html>

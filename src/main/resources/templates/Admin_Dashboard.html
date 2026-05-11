@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+    <link rel="shortcut icon" th:href="@{/images/FullLogo_Transparent.png}" type="image/x-icon">
+    <style>
+        body {
+            background: #0f0f1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        h1 {
+            color: #C22D7B;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: #1a1a2e;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 0 25px rgba(194, 45, 123, 0.3);
+        }
+        .card a, .card button {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .card button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .logout {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .logout a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+        .row .card {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <div class="row">
+        <div class="card">
+            <a th:href="@{/admin/users}">👥 View All Users</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/admin/bookings}">🎬 View All Bookings</a>
+        </div>
+    </div>
+
+    <div class="logout">
+        <a th:href="@{/admin/logout}">🚪 Logout</a>
+    </div>
+</div>
+</body>
+</html>
