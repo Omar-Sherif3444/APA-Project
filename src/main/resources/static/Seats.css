@@ -1,0 +1,263 @@
+body {
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.cinema {
+    padding: 40px;
+}
+
+.cinema h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 45px;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 55px;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Screen */
+.screen {
+    width: 60%;
+    margin: 30px auto;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    border-top: 5px solid #ccc;
+    box-shadow: 0 0 20px white;
+    background: #03020221;
+    letter-spacing: 5px;
+    color: gray;
+}
+
+/* Seating layout */
+.seating {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Row */
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Row label */
+.row-label {
+    margin-right: -42px;
+    color: gray;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+/* Seats */
+.seat {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* States */
+.standard {
+    background: transparent;
+}
+
+.occupied {
+    background: gray;
+    border: none;
+    cursor: not-allowed;
+}
+
+.selected {
+    background: #ff6b3d !important;
+    border: none !important;
+}
+
+.hold {
+    background: teal;
+    border: none;
+}
+
+/* Hover effect */
+.seat.standard:hover {
+    transform: scale(1.2);
+    background: #C22D7B;
+}
+
+.booking-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background: #000;
+    border-top: 1px solid #222;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 60px;
+    box-sizing: border-box;
+
+    color: #ccc;
+}
+
+/* LEFT */
+.footer-left p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+/* CENTER */
+.footer-center {
+    text-align: center;
+}
+
+.footer-center p {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.footer-center h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* RIGHT */
+.footer-right {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.checkout-btn {
+    background: #333;
+    color: #aaa;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: not-allowed; /* default disabled look */
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 14px;
+    margin-right: 25px;
+    color: #ccc;
+}
+
+.footer{
+    display: flex;
+    column-gap: 48px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.us{
+    padding-left: 4vw;
+    padding-top: 10vh;
+    width: 30%;
+}
+
+.us h2{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.us p{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.about{
+    padding-left: 3vw;
+    padding-top: 10vh;
+    width: 30%;
+}
+
+.about h3{
+    margin-bottom: 26px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.about a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #6C6C70;
+    margin-top: 10px;
+}
+
+.legal{
+    padding-left: 2vw;
+    padding-top: 10vh;
+    width: 15.25%;
+}
+
+.legal h3{
+    margin-bottom: 26px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.legal a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #6C6C70;
+    margin-top: 10px;
+}
+
+.follow{
+    padding-left: 5vw;
+    padding-top: 10vh;
+    width: 19.5%;
+}
+
+.follow h3{
+    margin-bottom: 26px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.follow img{
+    margin-left: 14px;
+    width: 18%;
+}
+
+.copyrights .brand img{
+    width: 20%;
+    margin-top: -45px;
+}
+
+.copyrights .brand h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: -50px;
+}

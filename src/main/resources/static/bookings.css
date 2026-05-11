@@ -1,0 +1,299 @@
+        .navbar1{
+            display: flex;
+        }
+
+        .navbar1 .logo{
+            display: flex;
+        }
+
+        .navbar1 .logo img{
+            width: 35%;
+        }
+
+        .navbar1 .links{
+            margin-top: 56px;
+            padding: 15px;
+            padding-left: 14.5vw;
+            width: 100%;
+        }
+
+        .navbar1 .links a{
+            text-decoration: none;
+            color: white;
+            margin-left: 35px;
+            font-size: 18px;
+        }
+
+        .navbar1 .links .user-name {
+            color: #C22D7B;
+            font-weight: bold;
+            margin-left: 35px;
+            font-size: 18px;
+        }
+
+        .navbar1 .links .logout-link {
+            color: #C22D7B !important;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 40px 0 10px 0;
+        }
+
+        .page-title span {
+            color: #C22D7B;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2a2a3e;
+            padding-bottom: 10px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #888;
+            border-radius: 8px 8px 0 0;
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            color: #C22D7B;
+            border-bottom: 3px solid #C22D7B;
+            margin-bottom: -12px;
+        }
+
+        .tab:hover {
+            color: #C22D7B;
+        }
+
+        /* Bookings Container */
+        .bookings-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Booking Card */
+        .booking-card {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #C22D7B;
+        }
+
+        .booking-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .booking-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        .booking-details .label {
+            color: #C22D7B;
+            font-weight: 600;
+        }
+
+        .booking-status {
+            text-align: right;
+            min-width: 140px;
+        }
+
+        .booking-code {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .booking-code span {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .status-upcoming {
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+        }
+
+        .status-past {
+            background: rgba(136, 136, 136, 0.15);
+            color: #888;
+        }
+
+        .total-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #C22D7B;
+            margin-top: 8px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+
+        .empty-state .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .empty-state p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .empty-state a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #C22D7B;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .empty-state a:hover {
+            background: #C22D7B;
+            color: white;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #888;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer{
+            display: flex;
+            column-gap: 48px;
+            margin-top: -30px;
+            margin-bottom: 30px;
+        }
+
+        .us{
+            padding-left: 4vw;
+            padding-top: 10vh;
+            width: 30%;
+        }
+
+        .us h2{
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .us p{
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .about{
+            padding-left: 3vw;
+            padding-top: 10vh;
+            width: 30%;
+        }
+
+        .about h3{
+            margin-bottom: 26px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .about a{
+            display: block;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6C6C70;
+            margin-top: 10px;
+        }
+
+        .legal{
+            padding-left: 2vw;
+            padding-top: 10vh;
+            width: 15.25%;
+        }
+
+        .legal h3{
+            margin-bottom: 26px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .legal a{
+            display: block;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6C6C70;
+            margin-top: 10px;
+        }
+
+        .follow{
+            padding-left: 5vw;
+            padding-top: 10vh;
+            width: 19.5%;
+        }
+
+        .follow h3{
+            margin-bottom: 26px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .follow img{
+            margin-left: 14px;
+            width: 18%;
+        }
+
+        .copyrights .brand img{
+            width: 20%;
+            margin-top: -45px;
+        }
+
+        .copyrights .brand h3{
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: -50px;
+        }

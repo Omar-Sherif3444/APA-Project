@@ -1,0 +1,373 @@
+/* Start Navbar */
+
+.navbar1{
+    display: flex;
+}
+
+.navbar1 .logo{
+    display: flex;
+}
+
+.navbar1 .logo img{
+    width: 35%;
+}
+
+.navbar1 .links{
+    margin-top: 50px;
+    padding: 15px;
+    padding-left: 13.93vw;
+    width: 100%;
+}
+
+.navbar1 .links a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    margin-left: 35px;
+    font-size: 18px;
+}
+
+/* End Navbar */
+
+/* Start film details */
+
+.Egybest img{
+    width: 50%;
+}
+
+.info-Egybest{
+    margin-top: 15px;
+    margin-left: -200px;
+}
+
+.Age{
+    border-radius: 50%;
+    border: 3px solid white;
+    padding-top: 5px;
+    padding-left: 2px;
+    height: 40px;
+}
+
+.Title{
+    margin-left: 20px;
+}
+
+.Description{
+    margin-top: -310px;
+    margin-left: 20vw;
+}
+
+.Description img{
+    width: 15px;
+    filter: invert(1);
+}
+
+.button-color{
+    background-color: transparent;
+    border: 1px solid white;
+    width: 170px;
+    border-radius: 5px;
+    padding: 10px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.button-color:hover{
+    background-color: #C22D7B;
+    border: 1px solid #C22D7B;
+    color: white;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+
+/* End film details */
+
+/* Start Date */
+
+.Date{
+    margin-top: 100px;
+    margin-left: 10px;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.F-Date{
+    background-color: rgba(0, 0, 0, 0.159);
+    text-align: center;
+    padding: 15px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.S-Date{
+    background-color: rgba(0, 0, 0, 0.159);
+    margin-left: 10px;
+    padding: 15px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.T-Date{
+    background-color: rgba(0, 0, 0, 0.159);
+    margin-left: 10px;
+    padding: 15px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.Fou-Date{
+    background-color: rgba(0, 0, 0, 0.159);
+    margin-left: 10px;
+    padding: 15px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.Fif-Date{
+    background-color: rgba(0, 0, 0, 0.159);
+    margin-left: 10px;
+    padding: 15px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.Six-Date{
+    background-color: rgba(0, 0, 0, 0.159);
+    margin-left: 10px;
+    padding: 15px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.F-Date:hover{
+    border-radius: 10px;
+    border: 3px solid #C22D7B;
+    color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+.S-Date:hover{
+    border-radius: 10px;
+    border: 3px solid #C22D7B;
+    color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+.T-Date:hover{
+    border-radius: 10px;
+    border: 3px solid #C22D7B;
+    color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+.Fou-Date:hover{
+    border-radius: 10px;
+    border: 3px solid #C22D7B;
+    color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+.Fif-Date:hover{
+    border-radius: 10px;
+    border: 3px solid #C22D7B;
+    color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+.Six-Date:hover{
+    border-radius: 10px;
+    border: 3px solid #C22D7B;
+    color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+
+/* End Date */
+
+/* Start Showtime */
+
+.Showtime{
+    margin-top: 50px;
+    margin-left: 10px;
+    padding: 20px;
+    font-size: 9px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.159);;
+}
+
+.show img{
+    width: 35px;
+    filter: invert(1);
+}
+
+.buttons-showtime input{
+    border-radius: 30px;
+    background-color: transparent;
+    padding: 10px;
+    margin-left: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    width: fit-content;
+    margin-bottom: 8px;
+    transition: box-shadow 0.5s ease;
+    transition-delay: 0.2s;
+}
+
+.buttons-showtime input:hover{
+    background-color: #C22D7B;
+    box-shadow: 0px 0px 20px #6C6C70;
+}
+/* End Showtime */
+
+/* Start Other Movies You May Enjoy */
+.other-movies{
+    margin-top: 80px;
+    margin-left: 10px;
+    padding-left: 5px;
+}
+
+.movie-list{
+    gap: 28px;
+}
+
+.movie-item{
+    width: 220px;
+    text-align: center;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.movie-item img{
+    width: 100%;
+    max-width: 220px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.movie-item h4{
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    transition: transform 0.25s ease;
+}
+
+.movie-item:hover{
+    transform: scale(1.02);
+}
+
+.movie-item:hover img{
+    transform: scale(1.05);
+    filter: brightness(1.3);
+}
+
+.movie-item:hover h4{
+    transform: translateY(-2px);
+}
+
+.page-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    z-index: 10;
+    transition: background 0.25s ease;
+}
+
+body:has(.movie-item:hover) .page-overlay{
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* End Other Movies You May Enjoy */
+
+/* Start Footer */
+.footer{
+    display: flex;
+    column-gap: 48px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.us{
+    padding-left: 4vw;
+    padding-top: 10vh;
+    width: 30%;
+}
+
+.us h2{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.us p{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.about{
+    padding-left: 3vw;
+    padding-top: 10vh;
+    width: 30%;
+}
+
+.about h3{
+    margin-bottom: 26px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.about a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #6C6C70;
+    margin-top: 10px;
+}
+
+.legal{
+    padding-left: 2vw;
+    padding-top: 10vh;
+    width: 15.25%;
+}
+
+.legal h3{
+    margin-bottom: 26px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.legal a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #6C6C70;
+    margin-top: 10px;
+}
+
+.follow{
+    padding-left: 5vw;
+    padding-top: 10vh;
+    width: 19.5%;
+}
+
+.follow h3{
+    margin-bottom: 26px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.follow img{
+    margin-left: 14px;
+    width: 18%;
+}
+
+.copyrights .brand img{
+    width: 20%;
+    margin-top: -45px;
+}
+
+.copyrights .brand h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: -50px;
+}
+/* End Footer */
